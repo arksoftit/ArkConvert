@@ -1,0 +1,129 @@
+object frm_ConfigSys: Tfrm_ConfigSys
+  Left = 403
+  Height = 352
+  Top = 245
+  Width = 620
+  Caption = 'frm_ConfigSys'
+  ClientHeight = 352
+  ClientWidth = 620
+  Menu = MainMenuCfg
+  LCLVersion = '3.8.0.0'
+  object tbr_InfPersonal: TToolBar
+    Left = 0
+    Height = 42
+    Top = 0
+    Width = 620
+    AutoSize = True
+    BorderSpacing.CellAlignHorizontal = ccaCenter
+    ButtonHeight = 38
+    ButtonWidth = 39
+    Caption = 'tbr_InfPersonal'
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsHomogenousChildResize
+    ChildSizing.ShrinkVertical = crsHomogenousChildResize
+    Color = cl3DLight
+    EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
+    ParentColor = False
+    TabOrder = 0
+    object tbn_Incluir: TToolButton
+      Left = 3
+      Hint = 'Incluir'
+      Top = 2
+      AutoSize = True
+      Caption = 'Incluir'
+      ImageIndex = 24
+      MenuItem = mit_Incluir
+    end
+    object tbn_Edit: TToolButton
+      Left = 42
+      Top = 2
+      AutoSize = True
+      Caption = 'Editar'
+      ImageIndex = 16
+      MenuItem = mit_Editar
+    end
+    object tbn_Borras: TToolButton
+      Left = 81
+      Hint = 'Borrar'
+      Top = 2
+      AutoSize = True
+      Caption = 'Borrar'
+      ImageIndex = 4
+      MenuItem = mit_Borrar
+    end
+    object tbn_Buscar: TToolButton
+      Left = 120
+      Hint = 'Buscar'
+      Top = 2
+      AutoSize = True
+      Caption = 'Buscar'
+      ImageIndex = 7
+      MenuItem = mit_Buscar
+    end
+    object tbn_Cancelar: TToolButton
+      Left = 159
+      Hint = 'Cancelar '
+      Top = 2
+      AutoSize = True
+      Caption = 'Cancelar'
+      ImageIndex = 13
+      MenuItem = mit_Cancelar
+    end
+  end
+  object btn_TestConecttion: TBitBtn
+    Left = 432
+    Height = 30
+    Top = 64
+    Width = 144
+    Caption = 'Probar Conexióm'
+    ImageIndex = 30
+    TabOrder = 1
+  end
+  object ButtonPanel1: TButtonPanel
+    Left = 6
+    Height = 34
+    Top = 312
+    Width = 608
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 2
+  end
+  object MainMenuCfg: TMainMenu
+    Left = 564
+    Top = 249
+    object mit_OpcionesInf: TMenuItem
+      Caption = 'Opciones'
+      object mit_Incluir: TMenuItem
+        Caption = 'Incluir'
+        Hint = 'Incluir'
+        ImageIndex = 24
+      end
+      object mit_Editar: TMenuItem
+        Caption = 'Editar'
+        ImageIndex = 16
+      end
+      object mit_Borrar: TMenuItem
+        Caption = 'Borrar'
+        Hint = 'Borrar'
+        ImageIndex = 4
+      end
+      object mit_Buscar: TMenuItem
+        Caption = 'Buscar'
+        Hint = 'Buscar'
+        ImageIndex = 7
+      end
+      object mit_Cancelar: TMenuItem
+        Caption = 'Cancelar'
+        Hint = 'Cancelar '
+        ImageIndex = 13
+      end
+    end
+  end
+end

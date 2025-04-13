@@ -26,6 +26,12 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="DateTimeCtrlsDsgn"/>
+      </Item>
+      <Item>
+        <PackageName Value="DateTimeCtrls"/>
+      </Item>
+      <Item>
         <PackageName Value="LCL"/>
       </Item>
     </RequiredPackages>
@@ -46,8 +52,24 @@
         <Filename Value="moddataark.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="mod_DataArk"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="modDataArk"/>
+      </Unit>
+      <Unit>
+        <Filename Value="frmconfigsys.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frm_ConfigSys"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmConfigSys"/>
+      </Unit>
+      <Unit>
+        <Filename Value="frmusuarios.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frm_Users"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="frmUsuarios"/>
       </Unit>
     </Units>
   </ProjectOptions>

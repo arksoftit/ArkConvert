@@ -1,7 +1,7 @@
 object frmMainMenu: TfrmMainMenu
-  Left = 365
+  Left = 352
   Height = 417
-  Top = 106
+  Top = 187
   Width = 726
   Caption = 'ArkConvert'
   ClientHeight = 417
@@ -721,23 +721,16 @@ object frmMainMenu: TfrmMainMenu
     TabOrder = 0
     Transparent = True
     object btn_Salir: TToolButton
-      Left = 91
+      Left = 119
       Hint = 'Salir'
       Top = 2
       Caption = 'Salir'
       ImageIndex = 35
       MenuItem = mit_Salir
     end
-    object tbn_Separador2: TToolButton
-      Left = 3
-      Height = 35
-      Top = 2
-      Caption = 'tbn_Separador2'
-      Style = tbsSeparator
-    end
     object tbn_Usuarios: TToolButton
-      Left = 11
-      Hint = 'Usuarios'
+      Left = 39
+      Hint = 'Gestión de Usuarios'
       Top = 2
       Caption = 'Usuarios'
       ImageIndex = 31
@@ -746,7 +739,7 @@ object frmMainMenu: TfrmMainMenu
       ShowHint = True
     end
     object tbn_Configuracion: TToolButton
-      Left = 47
+      Left = 75
       Hint = 'Configuración'
       Top = 2
       Caption = 'Configuración'
@@ -756,7 +749,7 @@ object frmMainMenu: TfrmMainMenu
       ShowHint = True
     end
     object tbn_Divisor1: TToolButton
-      Left = 83
+      Left = 111
       Height = 35
       Top = 2
       Caption = 'tbn_Divisor1'
@@ -768,6 +761,14 @@ object frmMainMenu: TfrmMainMenu
       Top = 200
       Width = 3
       Panels = <>
+    end
+    object tbn_CargaArchivos: TToolButton
+      Left = 3
+      Hint = 'Cargar Archivos'
+      Top = 2
+      Caption = 'Cargar Archivos'
+      ImageIndex = 17
+      MenuItem = mit_CargaArchivos
     end
   end
   object MainMenuArk: TMainMenu
@@ -785,18 +786,21 @@ object frmMainMenu: TfrmMainMenu
         Hint = 'Cargar Archivos'
         ImageIndex = 17
         ShortCut = 49219
+        OnClick = mit_CargaArchivosClick
       end
       object mit_Plantillas: TMenuItem
         Caption = 'Plantillas'
         Hint = 'Plantillas'
         ImageIndex = 26
         ShortCut = 24656
+        OnClick = mit_PlantillasClick
       end
       object mit_Salir: TMenuItem
         Caption = 'Salir'
         Hint = 'Salir'
         ImageIndex = 35
         ShortCut = 49233
+        OnClick = mit_SalirClick
       end
     end
     object mit_GestionData: TMenuItem
@@ -822,9 +826,10 @@ object frmMainMenu: TfrmMainMenu
       ShortCut = 32851
       object mit_Users: TMenuItem
         Caption = 'Usuarios'
-        Hint = 'Usuarios'
+        Hint = 'Gestión de Usuarios'
         ImageIndex = 31
         ShortCut = 16469
+        OnClick = mit_UsersClick
       end
       object mit_Config: TMenuItem
         Caption = 'Configuración'

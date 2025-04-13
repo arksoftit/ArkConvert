@@ -10,7 +10,7 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, uArkConvert, modDataArk, frmConfigSys;
+  Forms, datetimectrls, uArkConvert, modDataArk, frmConfigSys, frmUsuarios;
 
 {$R *.res}
 
@@ -21,6 +21,7 @@ begin
   Application.CreateForm(TfrmMainMenu, frmMainMenu);
   Application.CreateForm(Tmod_DataArk, mod_DataArk);
   Application.CreateForm(Tfrm_ConfigSys, frm_ConfigSys);
+  Application.CreateForm(Tfrm_Users, frm_Users);
   Application.Run;
 end.
 
