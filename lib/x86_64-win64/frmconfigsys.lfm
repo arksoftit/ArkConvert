@@ -1,0 +1,8 @@
+object frm_ConfigSys: Tfrm_ConfigSys
+  Left = 385
+  Height = 240
+  Top = 250
+  Width = 320
+  Caption = 'frm_ConfigSys'
+  LCLVersion = '3.8.0.0'
+end

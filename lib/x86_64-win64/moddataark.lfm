@@ -1,0 +1,7 @@
+object mod_DataArk: Tmod_DataArk
+  OldCreateOrder = False
+  Height = 261
+  HorizontalOffset = 385
+  VerticalOffset = 250
+  Width = 503
+end

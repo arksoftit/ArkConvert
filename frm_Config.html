@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="Lazarus SynEdit Html Exporter">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>frm_Variables</title>
+</head>
+<body text="black" bgcolor="#FFFFFF"><pre><code><font  size=3 face="Courier New"><font color="black"><b>unit </b>frm_Variables<font color="red">;
+
+<b>{$mode ObjFPC}{$H+}
+
+</b></font><b>interface
+
+uses
+  </b>Classes<font color="red">, </font>SysUtils<font color="red">, </font>Forms<font color="red">, </font>Controls<font color="red">, </font>Graphics<font color="red">, </font>Dialogs<font color="red">, </font>ComCtrls<font color="red">, </font>ButtonPanel<font color="red">,
+  </font>Menus<font color="red">, </font>StdCtrls<font color="red">, </font>MaskEdit<font color="red">, </font>DateTimePicker<font color="red">, </font>MaskUtils<font color="red">, </font>RegExpr<font color="red">, </font>ark_uDataModule<font color="red">;
+
+</font><b>type
+
+  </b><font color="blue"><b>{ TFormVariables }
+
+  </b></font>TFormVariables <font color="red">= </font><b>class</b><font color="red">(</font>TForm<font color="red">)
+    </font>ButtonPanel1<font color="red">: </font>TButtonPanel<font color="red">;
+    </font>cmb_StatusVar<font color="red">: </font>TComboBox<font color="red">;
+    </font>dtp_FCreacionVar<font color="red">: </font>TDateTimePicker<font color="red">;
+    </font>edt_CodigoVar<font color="red">: </font>TEdit<font color="red">;
+    </font>edt_DescripcionVar<font color="red">: </font>TEdit<font color="red">;
+    </font>edt_ValorVar<font color="red">: </font>TEdit<font color="red">;
+    </font>lab_CodigoVar<font color="red">: </font>TLabel<font color="red">;
+    </font>lab_DescripcionVar<font color="red">: </font>TLabel<font color="red">;
+    </font>lab_Fecha<font color="red">: </font>TLabel<font color="red">;
+    </font>lab_ValorVar<font color="red">: </font>TLabel<font color="red">;
+    </font>lab_StatusVar<font color="red">: </font>TLabel<font color="red">;
+    </font>MainMenuVar<font color="red">: </font>TMainMenu<font color="red">;
+    </font>MenuItem1<font color="red">: </font>TMenuItem<font color="red">;
+    </font>mit_Borrar<font color="red">: </font>TMenuItem<font color="red">;
+    </font>mit_Buscar<font color="red">: </font>TMenuItem<font color="red">;
+    </font>mit_Cancelar<font color="red">: </font>TMenuItem<font color="red">;
+    </font>mit_Editar<font color="red">: </font>TMenuItem<font color="red">;
+    </font>mit_Incluir<font color="red">: </font>TMenuItem<font color="red">;
+    </font>tbn_Borras<font color="red">: </font>TToolButton<font color="red">;
+    </font>tbn_Buscar<font color="red">: </font>TToolButton<font color="red">;
+    </font>tbn_Cancelar<font color="red">: </font>TToolButton<font color="red">;
+    </font>tbn_Edit<font color="red">: </font>TToolButton<font color="red">;
+    </font>tbn_Incluir<font color="red">: </font>TToolButton<font color="red">;
+    </font>tbr_Variables<font color="red">: </font>TToolBar<font color="red">;
+    </font><b>procedure </b>FormCreate<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+    </font><b>procedure </b>FormShow<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+    </font><b>procedure </b>mit_CancelarClick<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+    </font><b>procedure </b>mit_IncluirClick<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+    </font><b>procedure </b>tbn_CancelarClick<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+    </font><b>procedure </b>tbn_IncluirClick<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+    </font><b>procedure </b>CancelButtonClick<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+  </font><b>private
+    procedure </b>ActivarEdicion<font color="red">;             </font><font color="blue"><b>// Declaración del  método Incluir.
+    </b></font><b>procedure </b>CancelarEdicion<font color="red">;            </font><font color="blue"><b>// Declaración del  método Cancelar.
+  </b></font><b>public
+
+
+  end</b><font color="red">;
+
+</font><b>var
+  </b>Pfrm_Variables<font color="red">: </font>TFormVariables<font color="red">;
+
+</font><b>implementation
+
+</b><font color="red"><b>{$R *.lfm}
+
+</b></font><font color="blue"><b>{ TFormVariables }
+</b></font><b>procedure </b>TFormVariables<font color="red">.</font>FormCreate<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+</font><b>begin
+    </b><font color="blue"><b>// Desactivar todos los TEdit
+    </b></font>edt_CodigoVar<font color="red">.</font>Enabled       <font color="red">:= </font>False<font color="red">;
+    </font>cmb_StatusVar<font color="red">.</font>Enabled       <font color="red">:= </font>False<font color="red">;
+    </font>edt_DescripcionVar<font color="red">.</font>Enabled  <font color="red">:= </font>False<font color="red">;
+    </font>dtp_FCreacionVar<font color="red">.</font>Enabled    <font color="red">:= </font>False<font color="red">;
+    </font>edt_ValorVar<font color="red">.</font>Enabled        <font color="red">:= </font>False<font color="red">;
+</font><b>END</b><font color="red">;
+
+</font><b>procedure </b>TFormVariables<font color="red">.</font>ActivarEdicion<font color="red">;
+</font><b>begin
+  </b><font color="blue"><b>// Activar todos los TEdit
+  </b></font>edt_CodigoVar<font color="red">.</font>Enabled         <font color="red">:= </font>True<font color="red">;
+  </font>cmb_StatusVar<font color="red">.</font>Enabled         <font color="red">:= </font>True<font color="red">;
+  </font>edt_DescripcionVar<font color="red">.</font>Enabled    <font color="red">:= </font>True<font color="red">;
+  </font>dtp_FCreacionVar<font color="red">.</font>Enabled      <font color="red">:= </font>True<font color="red">;
+  </font>edt_ValorVar<font color="red">.</font>Enabled          <font color="red">:= </font>True<font color="red">;
+</font><b>end</b><font color="red">;
+
+</font><b>procedure </b>TFormVariables<font color="red">.</font>CancelarEdicion<font color="red">;
+</font><b>begin
+  if </b>MessageDlg<font color="red">(</font><font color="blue">'¿Está seguro que desea cancelar?'</font><font color="red">, </font>mtConfirmation<font color="red">, [</font>mbYes<font color="red">, </font>mbNo<font color="red">], </font><font color="navy">0</font><font color="red">) = </font>mrYes <b>then
+  begin
+    </b><font color="blue"><b>// Limpiar todos los TEdit
+    </b></font>edt_CodigoVar<font color="red">.</font>Text          <font color="red">:= </font><font color="blue">''</font><font color="red">;
+    </font>cmb_StatusVar<font color="red">.</font>Text          <font color="red">:= </font><font color="blue">''</font><font color="red">;
+    </font>edt_DescripcionVar<font color="red">.</font>Text     <font color="red">:= </font><font color="blue">''</font><font color="red">;
+    </font>edt_ValorVar<font color="red">.</font>Text           <font color="red">:= </font><font color="blue">''</font><font color="red">;
+
+    </font><font color="blue"><b>// Desactivar todos los TEdit
+    </b></font>edt_CodigoVar<font color="red">.</font>Enabled       <font color="red">:= </font>False<font color="red">;
+    </font>cmb_StatusVar<font color="red">.</font>Enabled       <font color="red">:= </font>False<font color="red">;
+    </font>edt_DescripcionVar<font color="red">.</font>Enabled  <font color="red">:= </font>False<font color="red">;
+    </font>dtp_FCreacionVar<font color="red">.</font>Enabled    <font color="red">:= </font>False<font color="red">;
+    </font>edt_ValorVar<font color="red">.</font>Enabled        <font color="red">:= </font>False<font color="red">;
+  </font><b>end</b><font color="red">;
+</font><b>end</b><font color="red">;
+
+</font><b>procedure </b>TFormVariables<font color="red">.</font>mit_IncluirClick<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+</font><b>begin
+  </b>ActivarEdicion<font color="red">;
+</font><b>end</b><font color="red">;
+
+</font><b>procedure </b>TFormVariables<font color="red">.</font>tbn_IncluirClick<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+</font><b>begin
+  </b>ActivarEdicion<font color="red">;
+</font><b>end</b><font color="red">;
+
+</font><b>procedure </b>TFormVariables<font color="red">.</font>mit_CancelarClick<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+</font><b>begin
+  </b>CancelarEdicion<font color="red">;
+</font><b>end</b><font color="red">;
+
+</font><b>procedure </b>TFormVariables<font color="red">.</font>tbn_CancelarClick<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+</font><b>begin
+  </b>CancelarEdicion<font color="red">;
+</font><b>end</b><font color="red">;
+
+</font><b>procedure </b>TFormVariables<font color="red">.</font>CancelButtonClick<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+</font><b>begin
+  </b>CancelarEdicion<font color="red">;
+</font><b>end</b><font color="red">;
+
+</font><b>procedure </b>TFormVariables<font color="red">.</font>FormShow<font color="red">(</font>Sender<font color="red">: </font>TObject<font color="red">);
+</font><b>begin
+     </b><font color="blue"><b>// Asignar la fecha actual del sistema al dtp_FCreacionCat
+     </b></font>dtp_FCreacionVar<font color="red">.</font>Date <font color="red">:= </font>Now<font color="red">;
+
+</font><b>end</b><font color="red">;
+
+
+</font><b>end</b><font color="red">.
+
+</font></font>
+</code></pre>
+</body>
+</html>

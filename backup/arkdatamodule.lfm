@@ -1,0 +1,7 @@
+object ArkDataModule: TArkDataModule
+  OldCreateOrder = False
+  Height = 414
+  HorizontalOffset = 454
+  VerticalOffset = 128
+  Width = 489
+end
